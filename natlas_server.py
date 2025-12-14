@@ -26,12 +26,19 @@ except ImportError:
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "N-ATLaS.Q2_K.gguf")
 
 # ============================
-# API KEYS - ADD YOURS HERE LOCALLY (DO NOT COMMIT)
-# Get free NewsAPI key at: https://newsapi.org/register
-# Get Google Maps key at: https://console.cloud.google.com/google/maps-apis
+# API KEYS - Loaded from .env file (secure, not in Git)
+# Create .env file with:
+#   NEWS_API_KEY=your_key_here
+#   GOOGLE_MAPS_API_KEY=your_key_here
 # ============================
-NEWS_API_KEY = "YOUR_NEWSAPI_KEY_HERE"  # Replace with your NewsAPI.org key
-GOOGLE_MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY_HERE"  # Replace with your Google Maps key
+try:
+    from dotenv import load_dotenv
+    load_dotenv()  # Load from .env file
+except ImportError:
+    pass  # dotenv not installed, will use os.getenv
+
+NEWS_API_KEY = os.getenv('NEWS_API_KEY', 'YOUR_NEWSAPI_KEY_HERE')
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY', 'YOUR_GOOGLE_MAPS_API_KEY_HERE')
 # ============================
 
 # Global model instance
