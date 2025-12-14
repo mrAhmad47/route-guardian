@@ -14,8 +14,19 @@
   <title>RouteGuardian</title>
   <link rel="manifest" href="manifest.json">
 
-  <!-- Google Maps JavaScript API - ADD YOUR KEY HERE -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY_HERE"></script>
+  <!-- Load API config from local file (gitignored) -->
+  <script src="api_config.local.js"></script>
+
+  <!-- Google Maps JavaScript API - Loaded dynamically from config -->
+  <script>
+    // Load Google Maps API with key from config file
+    (function () {
+      var key = window.API_CONFIG ? window.API_CONFIG.GOOGLE_MAPS_API_KEY : 'YOUR_KEY_HERE';
+      var script = document.createElement('script');
+      script.src = 'https://maps.googleapis.com/maps/api/js?key=' + key;
+      document.head.appendChild(script);
+    })();
+  </script>
 </head>
 
 <body>
