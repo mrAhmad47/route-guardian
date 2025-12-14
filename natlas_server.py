@@ -26,14 +26,13 @@ except ImportError:
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "N-ATLaS.Q2_K.gguf")
 
 # ============================
-# NEWS API KEY - PASTE YOURS HERE
-# Get free key at: https://newsapi.org/register
+# API KEYS - ADD YOURS HERE LOCALLY (DO NOT COMMIT)
+# Get free NewsAPI key at: https://newsapi.org/register
+# Get Google Maps key at: https://console.cloud.google.com/google/maps-apis
 # ============================
-NEWS_API_KEY = "9903f645f23748949387d1e34811bfd8"  # User's NewsAPI key
+NEWS_API_KEY = "YOUR_NEWSAPI_KEY_HERE"  # Replace with your NewsAPI.org key
+GOOGLE_MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY_HERE"  # Replace with your Google Maps key
 # ============================
-
-# Google Maps API Key for directions proxy
-GOOGLE_MAPS_API_KEY = "AIzaSyDLgxgrNJq-4xjRi_cc9RPvX-kKC06VwyQ"
 
 # Global model instance
 llm = None
